@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Cumpleaños ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#160022,#8e24aa,#ff80ab);
+color:white;
+font-family:Poppins;
+}
+
+
+.estrellas{
+position:absolute;
+width:100%;
+height:100%;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:35px 35px;
+animation:mov 10s linear infinite;
+}
+
+@keyframes mov{
+to{
+background-position:200px 200px;
+}
+}
+
+
+.contenido{
+position:relative;
+z-index:2;
+text-align:center;
+transform:translateY(-55px);
+padding:15px;
+}
+
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+text-shadow:0 0 25px pink;
+margin-bottom:20px;
+}
+
+
+.regalo{
+font-size:110px;
+cursor:pointer;
+animation:saltar 1.5s infinite;
+}
+
+
+@keyframes saltar{
+50%{
+transform:translateY(-15px);
+}
+}
+
+
+button{
+background:#ff4fa3;
+color:white;
+border:0;
+padding:12px 30px;
+border-radius:30px;
+font-size:20px;
+cursor:pointer;
+}
+
+
+#cumple{
+display:none;
+}
+
+
+/* Pastel pequeño profesional */
+
+.pastel{
+width:160px;
+height:85px;
+background:linear-gradient(#c9824a,#8b4d24);
+border:4px solid #5c3218;
+border-radius:18px;
+margin:40px auto 20px;
+position:relative;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 0 25px #d89b5b;
+}
+
+
+.pastel:before{
+content:"";
+position:absolute;
+top:-25px;
+left:0;
+width:160px;
+height:30px;
+background:#fff0d5;
+border-radius:18px;
+}
+
+
+.sombrero{
+position:absolute;
+top:-65px;
+left:55px;
+font-size:38px;
+}
+
+
+.vela{
+position:absolute;
+top:-65px;
+left:72px;
+width:10px;
+height:45px;
+background:white;
+}
+
+
+.fuego{
+width:18px;
+height:23px;
+background:orange;
+border-radius:50%;
+position:absolute;
+top:-23px;
+left:-4px;
+box-shadow:0 0 18px yellow;
+animation:fuego .5s infinite alternate;
+}
+
+
+@keyframes fuego{
+to{
+transform:scale(1.3);
+}
+}
+
+.detalles{
+font-size:22px;
+margin-top:35px;
+}
+
+
+.numero{
+font-size:42px;
+font-weight:bold;
+}
+
+
+.carta{
+background:rgba(255,255,255,.15);
+padding:15px;
+border-radius:20px;
+max-width:330px;
+margin:auto;
+font-size:14px;
+}</style>
+</head>
+
+<body>
+
+<div class="estrellas"></div>
+
+
+<div class="contenido" id="inicio">
+
+<h1>
+Tengo una sorpresa para ti ❤️
+</h1>
+
+<div class="regalo">
+🎁
+</div>
+
+<button onclick="abrir()">
+Abrir mi regalo 💖
+</button>
+
+</div>
+
+
+
+<div class="contenido" id="cumple">
+
+<h1>
+¡Feliz Cumpleaños, Amor! ❤️
+</h1>
+
+
+<div class="pastel" onclick="mordida()">
+
+<div class="sombrero">
+🤠
+</div>
+
+
+<div class="vela" onclick="apagar(event)">
+
+<div class="fuego" id="llama"></div>
+
+</div>
+
+
+<div class="detalles">
+🌸 🐴 🤎
+</div>
+
+
+</div>
+
+
+<div class="numero">
+17 AÑOS 🎂
+</div>
+
+
+<h2 id="mensaje">
+
+Pide un deseo ✨<br>
+
+Toca la vela para apagarla 🕯️<br>
+
+Después dale una mordida al pastel 🎂😋
+
+</h2>
+
+
+
+<div class="carta">
+
+<h2>
+Amorcito ❤️
+</h2>
+
+<p>
+Feliz cumpleaños, mi niña hermosa ❤️
+
+Espero que este día esté lleno de felicidad y momentos bonitos.
+
+Estoy muy orgulloso de ti y de todo lo que haces.
+
+Nunca dejes de luchar por tus sueños.
+
+Te amo muchísimo ✨
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+function abrir(){
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("cumple").style.display="block";
+
+}
+
+
+
+function apagar(e){
+
+e.stopPropagation();
+
+document.getElementById("llama").style.display="none";
+
+
+document.getElementById("mensaje").innerHTML=
+
+"✨ Deseo pedido, amorcito ❤️<br>Ahora dale una mordida al pastel 🎂😋";
+
+
+
+for(let i=0;i<30;i++){
+
+let f=document.createElement("div");
+
+f.innerHTML="🎆";
+
+f.style.position="absolute";
+
+f.style.left=Math.random()*100+"%";
+
+f.style.top=Math.random()*80+"%";
+
+f.style.fontSize="40px";
+
+
+document.body.appendChild(f);
+
+
+setTimeout(()=>{
+
+f.remove();
+
+},2000);
+
+}
+
+}
+
+
+
+
+function mordida(){
+
+document.querySelector(".pastel").style.transform=
+"scale(.8) rotate(-8deg)";
+
+
+document.getElementById("mensaje").innerHTML=
+
+"😋🎂 ¡Mordida, mordida! Que rico pastel ❤️✨";
+
+
+setTimeout(()=>{
+
+document.querySelector(".pastel").style.transform="scale(1)";
+
+},500);
+
+}
+
+
+</script>
+
+
+</body>
+</html>
