@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Cumpleaños Katia ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#160022,#8e24aa,#ff80ab);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Poppins;
+}
+
+.estrellas{
+position:absolute;
+width:100%;
+height:100%;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:35px 35px;
+animation:estrellas 10s linear infinite;
+}
+
+@keyframes estrellas{
+from{background-position:0 0;}
+to{background-position:200px 200px;}
+}
+
+.contenido{
+position:relative;
+z-index:3;
+text-align:center;
+padding:20px;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:80px;
+text-shadow:0 0 25px pink;
+animation:brillo 2s infinite alternate;
+}
+
+@keyframes brillo{
+from{filter:brightness(1);}
+to{filter:brightness(1.6);}
+}
+
+
+.regalo{
+font-size:130px;
+cursor:pointer;
+animation:saltar 1.5s infinite;
+}
+
+@keyframes saltar{
+50%{transform:translateY(-20px);}
+}
+
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:30px;
+font-size:22px;
+background:#ff4fa3;
+color:white;
+box-shadow:0 0 25px pink;
+cursor:pointer;
+}
+
+
+#cumple{
+display:none;
+}
+
+
+.pastel{
+width:230px;
+height:120px;
+background:#ff6fa8;
+margin:40px auto 20px;
+border-radius:20px;
+position:relative;
+box-shadow:0 0 35px pink;
+cursor:pointer;
+}
+
+
+.pastel:before{
+content:"";
+position:absolute;
+top:-35px;
+left:0;
+width:230px;
+height:40px;
+background:white;
+border-radius:20px;
+}
+
+
+.vela{
+width:14px;
+height:60px;
+background:white;
+position:absolute;
+top:-95px;
+left:108px;
+}
+
+
+.fuego{
+width:22px;
+height:30px;
+background:orange;
+border-radius:50%;
+position:absolute;
+top:-30px;
+left:-4px;
+box-shadow:0 0 25px yellow;
+animation:fuego .5s infinite alternate;
+}
+
+
+@keyframes fuego{
+to{transform:scale(1.3);}
+}
+
+
+.numero{
+font-size:55px;
+font-weight:bold;
+}
+
+
+.carta{
+background:rgba(255,255,255,.15);
+border-radius:20px;
+padding:20px;
+max-width:600px;
+margin:auto;
+backdrop-filter:blur(5px);
+}
+
+
+.globo{
+position:absolute;
+bottom:-120px;
+width:70px;
+height:90px;
+border-radius:50%;
+animation:subir 9s infinite linear;
+}
+
+@keyframes subir{
+to{
+transform:translateY(-120vh);
+}
+}
+
+.g1{left:10%;background:#ff3366;}
+.g2{left:45%;background:#ffd633;animation-delay:2s;}
+.g3{left:80%;background:#3399ff;animation-delay:4s;}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="estrellas"></div>
+
+<div class="globo g1"></div>
+<div class="globo g2"></div>
+<div class="globo g3"></div>
+
+
+
+<div class="contenido" id="inicio">
+
+<h1>Para alguien muy especial ❤️</h1>
+
+<div class="regalo">
+🎁
+</div>
+
+<button onclick="abrirRegalo()">
+Abrir mi regalo 💖
+</button>
+
+</div>
+
+
+
+
+<div class="contenido" id="cumple">
+
+<h1>
+¡Feliz Cumpleaños, Amor! ❤️
+</h1>
+
+
+<div class="pastel" onclick="apagarVela()">
+
+<div class="vela">
+
+<div class="fuego" id="llama"></div>
+
+</div>
+
+</div>
+
+
+<div class="numero">
+17 AÑOS 🎂
+</div>
+
+
+<h2 id="mensaje">
+Pide un deseo ✨<br>
+Toca la vela para apagarla 🕯️
+</h2>
+
+
+<div class="carta">
+
+<h2>Katia ❤️</h2>
+
+<p>
+Feliz cumpleaños, mi niña hermosa ❤️
+
+Espero que este día esté lleno de sonrisas,
+felicidad y momentos bonitos.
+
+Estoy muy orgulloso de ti y de todo lo que haces.
+Nunca dejes de luchar por tus sueños.
+
+Te amo muchísimo ✨
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+function abrirRegalo(){
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("cumple").style.display="block";
+
+}
+
+
+function apagarVela(){
+
+document.getElementById("llama").style.display="none";
+
+
+document.getElementById("mensaje").innerHTML=
+"✨ Espero que todos tus deseos se cumplan, Katia ❤️✨";
+
+
+for(let i=0;i<40;i++){
+
+let f=document.createElement("div");
+
+f.innerHTML="🎆";
+
+f.style.position="absolute";
+
+f.style.left=Math.random()*100+"%";
+
+f.style.top=Math.random()*80+"%";
+
+f.style.fontSize="40px";
+
+document.body.appendChild(f);
+
+
+setTimeout(()=>{
+f.remove();
+},2000);
+
+}
+
+
+}
+
+
+</script>
+
+
+</body>
+  </html>
